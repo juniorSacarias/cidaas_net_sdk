@@ -1,0 +1,12 @@
+/home/junior/Escritorio/cidaas/cidaas_net_sdk/bin/Debug/net9.0/cidaas_net_sdk.deps.json
+/home/junior/Escritorio/cidaas/cidaas_net_sdk/bin/Debug/net9.0/cidaas_net_sdk.dll
+/home/junior/Escritorio/cidaas/cidaas_net_sdk/bin/Debug/net9.0/cidaas_net_sdk.pdb
+/home/junior/Escritorio/cidaas/cidaas_net_sdk/obj/Debug/net9.0/cidaas_net_sdk.csproj.AssemblyReference.cache
+/home/junior/Escritorio/cidaas/cidaas_net_sdk/obj/Debug/net9.0/cidaas_net_sdk.GeneratedMSBuildEditorConfig.editorconfig
+/home/junior/Escritorio/cidaas/cidaas_net_sdk/obj/Debug/net9.0/cidaas_net_sdk.AssemblyInfoInputs.cache
+/home/junior/Escritorio/cidaas/cidaas_net_sdk/obj/Debug/net9.0/cidaas_net_sdk.AssemblyInfo.cs
+/home/junior/Escritorio/cidaas/cidaas_net_sdk/obj/Debug/net9.0/cidaas_net_sdk.csproj.CoreCompileInputs.cache
+/home/junior/Escritorio/cidaas/cidaas_net_sdk/obj/Debug/net9.0/cidaas_net_sdk.dll
+/home/junior/Escritorio/cidaas/cidaas_net_sdk/obj/Debug/net9.0/refint/cidaas_net_sdk.dll
+/home/junior/Escritorio/cidaas/cidaas_net_sdk/obj/Debug/net9.0/cidaas_net_sdk.pdb
+/home/junior/Escritorio/cidaas/cidaas_net_sdk/obj/Debug/net9.0/ref/cidaas_net_sdk.dll
