@@ -18,11 +18,20 @@ namespace cidaas_net_sdk.core
             var options = new CidaasOptions();
             configureOptions(options);
 
+            builder.Services.AddHttpClient<AhamaticAuthService>(client =>
+            {
+                if (!string.IsNullOrEmpty(options.Ahamatic.ApiBaseUrl))
+                {
+                    client.BaseAddress = new Uri(options.Ahamatic.ApiBaseUrl);
+                }
+            });
+
             builder.Services.AddSingleton(options);
 
             builder.Services.AddSingleton<CidaasAuthService>();
 
             using var tempServiceProvider = builder.Services.BuildServiceProvider();
+
             var service = tempServiceProvider.GetRequiredService<CidaasAuthService>();
 
             service.ConfigureAuth(builder);

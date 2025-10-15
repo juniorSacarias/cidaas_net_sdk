@@ -9,6 +9,7 @@ namespace cidaas_net_sdk.options
         public bool Europe { get; set; } = false;
         public string ApplicationCode { get; set; } = string.Empty;
         public string ModuleName { get; set; } = string.Empty;
+        public string ApiBaseUrl { get; set; } = string.Empty;
     }
 
     public class CidaasOptions
@@ -87,6 +88,13 @@ namespace cidaas_net_sdk.options
             {
                 throw new ArgumentException(
                     "Ahamatic ModuleName es requerido y no puede ser nulo o contener solo espacios."
+                );
+            }
+
+            if (string.IsNullOrWhiteSpace(Ahamatic.ApiBaseUrl))
+            {
+                throw new ArgumentException(
+                    "Ahamatic ApiBaseUrl es requerido y no puede ser nulo o contener solo espacios."
                 );
             }
         }
