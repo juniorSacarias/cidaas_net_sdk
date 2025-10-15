@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Cidaas.Net.Sdk.Core</id>
+    <version>1.0.12</version>
+    <authors>cidaas_net_sdk</authors>
+    <description>Package Description</description>
+    <repository type="git" commit="42d88eb80a0101d9ad21c3439e62bd78c8629ce1" />
+    <dependencies>
+      <group targetFramework="net8.0">
+        <dependency id="Microsoft.AspNetCore.Authentication.OpenIdConnect" version="8.0.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+    <frameworkReferences>
+      <group targetFramework="net8.0">
+        <frameworkReference name="Microsoft.AspNetCore.App" />
+      </group>
+    </frameworkReferences>
+  </metadata>
+  <files>
+    <file src="/home/junior/Escritorio/cidaas/cidaas_net_sdk/bin/Release/net8.0/cidaas_net_sdk.dll" target="lib/net8.0/cidaas_net_sdk.dll" />
+  </files>
+</package>

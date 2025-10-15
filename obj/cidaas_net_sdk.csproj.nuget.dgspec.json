@@ -5,10 +5,10 @@
   },
   "projects": {
     "/home/junior/Escritorio/cidaas/cidaas_net_sdk/cidaas_net_sdk.csproj": {
-      "version": "1.0.0",
+      "version": "1.0.12",
       "restore": {
         "projectUniqueName": "/home/junior/Escritorio/cidaas/cidaas_net_sdk/cidaas_net_sdk.csproj",
-        "projectName": "cidaas_net_sdk",
+        "projectName": "Cidaas.Net.Sdk.Core",
         "projectPath": "/home/junior/Escritorio/cidaas/cidaas_net_sdk/cidaas_net_sdk.csproj",
         "packagesPath": "/home/junior/.nuget/packages/",
         "outputPath": "/home/junior/Escritorio/cidaas/cidaas_net_sdk/obj/",
@@ -17,15 +17,14 @@
           "/home/junior/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "net9.0"
+          "net8.0"
         ],
         "sources": {
-          "/home/junior/Escritorio/LocalNuGetFeed": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net9.0": {
-            "targetAlias": "net9.0",
+          "net8.0": {
+            "targetAlias": "net8.0",
             "projectReferences": {}
           }
         },
@@ -42,20 +41,12 @@
         "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
-        "net9.0": {
-          "targetAlias": "net9.0",
+        "net8.0": {
+          "targetAlias": "net8.0",
           "dependencies": {
-            "Microsoft.AspNetCore.Authentication.Cookies": {
-              "target": "Package",
-              "version": "[2.3.0, )"
-            },
             "Microsoft.AspNetCore.Authentication.OpenIdConnect": {
               "target": "Package",
-              "version": "[9.0.9, )"
-            },
-            "Microsoft.Extensions.Options": {
-              "target": "Package",
-              "version": "[9.0.9, )"
+              "version": "[8.0.0, )"
             }
           },
           "imports": [
@@ -69,7 +60,20 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.15, 8.0.15]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.15, 8.0.15]"
+            }
+          ],
           "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
