@@ -91,4 +91,43 @@ namespace cidaas_net_sdk.core.Models
         public string RefreshToken { get; set; } = string.Empty;
         public string AccountId { get; set; } = string.Empty;
     }
+
+    public class AhamaticAccountInfo
+    {
+        [JsonPropertyName("PersonId")]
+        public int PersonId { get; set; }
+
+        [JsonPropertyName("UserId")]
+        public int UserId { get; set; }
+
+        [JsonPropertyName("EmailAddress")]
+        public string EmailAddress { get; set; } = string.Empty;
+
+        [JsonPropertyName("FirstName")]
+        public string FirstName { get; set; } = string.Empty;
+
+        [JsonPropertyName("LastName")]
+        public string LastName { get; set; } = string.Empty;
+    }
+
+    public class AhamaticFullValidationResponse
+    {
+        [JsonPropertyName("message")]
+        public string Message { get; set; } = string.Empty;
+
+        [JsonPropertyName("token")]
+        public string Token { get; set; } = string.Empty;
+
+        [JsonPropertyName("refreshToken")]
+        public string RefreshToken { get; set; } = string.Empty;
+
+        [JsonPropertyName("access_token")]
+        public string CidaasAccessToken { get; set; } = string.Empty;
+
+        [JsonPropertyName("account")]
+        public AhamaticAccountInfo? Account { get; set; }
+
+        [JsonPropertyName("applicationId")]
+        public string ApplicationId { get; set; } = string.Empty;
+    }
 }

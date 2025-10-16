@@ -69,12 +69,13 @@ namespace cidaas_net_sdk.core
                 return null;
             }
 
-            JsonDocument? ahamaticCidaasVallidationResult = await AhamaticCidaasValidationInternal(
-                access_token,
-                _cidaasOptions.ClientId,
-                _cidaasOptions.Issuer,
-                apiKey
-            );
+            AhamaticFullValidationResponse? ahamaticCidaasVallidationResult =
+                await AhamaticCidaasValidationInternal(
+                    access_token,
+                    _cidaasOptions.ClientId,
+                    _cidaasOptions.Issuer,
+                    apiKey
+                );
 
             return loginAhamaticResult;
         }
@@ -255,7 +256,7 @@ namespace cidaas_net_sdk.core
             }
         }
 
-        private async Task<JsonDocument?> AhamaticCidaasValidationInternal(
+        private async Task<AhamaticFullValidationResponse?> AhamaticCidaasValidationInternal(
             string cidaasAccessToken,
             string cidaasClientId,
             string cidaasIssuer,
@@ -291,16 +292,14 @@ namespace cidaas_net_sdk.core
 
                 if (response.IsSuccessStatusCode)
                 {
-                    _logger.LogInformation(
-                        "AHAMATIC CIDAAS VALIDATION SUCCESS: Response JSON: {Json}",
-                        responseContent
-                    );
+                    var validationResponse =
+                        JsonSerializer.Deserialize<AhamaticFullValidationResponse>(responseContent);
 
                     _logger.LogInformation(
                         "AHAMATIC CIDAAS VALIDATION: Successfully exchanged Cidaas token for Ahamatic tokens. Status: 200 OK."
                     );
 
-                    return JsonDocument.Parse(responseContent);
+                    return validationResponse;
                 }
                 else
                 {

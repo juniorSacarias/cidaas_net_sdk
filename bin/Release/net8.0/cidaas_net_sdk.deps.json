@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v8.0": {
-      "cidaas_net_sdk/1.0.19": {
+      "cidaas_net_sdk/1.0.20": {
         "dependencies": {
           "Microsoft.AspNetCore.Authentication.OpenIdConnect": "8.0.0"
         },
@@ -105,7 +105,7 @@
     }
   },
   "libraries": {
-    "cidaas_net_sdk/1.0.19": {
+    "cidaas_net_sdk/1.0.20": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

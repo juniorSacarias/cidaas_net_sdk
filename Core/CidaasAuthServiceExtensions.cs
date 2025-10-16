@@ -61,7 +61,7 @@ namespace cidaas_net_sdk.core
             httpClient.DefaultRequestHeaders.Authorization =
                 new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", access_token);
 
-            string userInfoEndpoint = "https://test.login.abena.com/users-srv/userinfo";
+            string userInfoEndpoint = service.Options.Issuer + "/users-srv/userinfo";
 
             var response = await httpClient.GetAsync(userInfoEndpoint);
 
