@@ -130,4 +130,13 @@ namespace cidaas_net_sdk.core.Models
         [JsonPropertyName("applicationId")]
         public string ApplicationId { get; set; } = string.Empty;
     }
+
+    public class AhamaticAccountData
+    {
+        public string Token { get; set; } = string.Empty;
+        public string RefreshToken { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+        public string FirstName { get; set; } = string.Empty;
+        public int PersonId { get; set; }
+    }
 }

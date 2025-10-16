@@ -2,6 +2,8 @@ using System.Text;
 using System.Text.Json;
 using cidaas_net_sdk.core.Models;
 using cidaas_net_sdk.options;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 
 namespace cidaas_net_sdk.core
@@ -25,10 +27,45 @@ namespace cidaas_net_sdk.core
             _cidaasOptions = options;
         }
 
+        public async Task<string?> GetAhamaticTokenAsync(HttpContext context)
+        {
+            return await context.GetTokenAsync("ahamatic_token");
+        }
+
+        public static async Task<string?> GetAhamaticRefreshTokenAsync(HttpContext context)
+        {
+            return await context.GetTokenAsync("ahamatic_refresh_token");
+        }
+
+        public async Task<AhamaticAccountData?> GetAhamaticAccountDataAsync(HttpContext context)
+        {
+            var email = await context.GetTokenAsync("ahamatic_account_email");
+            var firstName = await context.GetTokenAsync("ahamatic_account_firstname");
+            var personIdStr = await context.GetTokenAsync("ahamatic_account_personid");
+
+            if (string.IsNullOrEmpty(email))
+            {
+                _logger.LogWarning("AHAMATIC: No se encontraron datos de Ahamatic en el contexto.");
+                return null;
+            }
+
+            int.TryParse(personIdStr, out int personId);
+
+            return new AhamaticAccountData
+            {
+                Token = await GetAhamaticTokenAsync(context) ?? string.Empty,
+                RefreshToken = await GetAhamaticTokenAsync(context) ?? string.Empty,
+                Email = email,
+                FirstName = firstName ?? string.Empty,
+                PersonId = personId,
+            };
+        }
+
         public async Task<AhamaticFullValidationResponse?> AuthenticateAhamaticAsync(
             string email,
             string password,
-            string access_token
+            string access_token,
+            HttpContext context
         )
         {
             _logger.LogInformation("AHAMATIC FACADE: Initiating full authentication sequence.");
@@ -77,7 +114,60 @@ namespace cidaas_net_sdk.core
                     apiKey
                 );
 
+            if (ahamaticCidaasVallidationResult != null && context != null)
+            {
+                await SaveAhamaticDataAsync(context, ahamaticCidaasVallidationResult);
+            }
+
             return ahamaticCidaasVallidationResult;
+        }
+
+        private async Task SaveAhamaticDataAsync(
+            HttpContext context,
+            AhamaticFullValidationResponse ahamaticData
+        )
+        {
+            var authenticateResult = await context.AuthenticateAsync();
+
+            if (authenticateResult?.Properties == null)
+            {
+                _logger.LogWarning(
+                    "AHAMATIC: No se pudieron obtener las Authentication Properties."
+                );
+                return;
+            }
+
+            authenticateResult.Properties.StoreTokens(
+                new[]
+                {
+                    new AuthenticationToken { Name = "ahamatic_token", Value = ahamaticData.Token },
+                    new AuthenticationToken
+                    {
+                        Name = "ahamatic_refresh_token",
+                        Value = ahamaticData.RefreshToken,
+                    },
+                    new AuthenticationToken
+                    {
+                        Name = "ahamatic_account_email",
+                        Value = ahamaticData.Account?.EmailAddress ?? string.Empty,
+                    },
+                    new AuthenticationToken
+                    {
+                        Name = "ahamatic_account_firstname",
+                        Value = ahamaticData.Account?.FirstName ?? string.Empty,
+                    },
+                    new AuthenticationToken
+                    {
+                        Name = "ahamatic_account_personid",
+                        Value = ahamaticData.Account?.PersonId.ToString() ?? string.Empty,
+                    },
+                }
+            );
+
+            // Renovar la cookie con los nuevos tokens
+            await context.SignInAsync(authenticateResult.Principal!, authenticateResult.Properties);
+
+            _logger.LogInformation("AHAMATIC: Datos guardados en Authentication Properties.");
         }
 
         private async Task<AuthConfigDetail?> GetModuleAuthConfigInternal(string moduleName)
