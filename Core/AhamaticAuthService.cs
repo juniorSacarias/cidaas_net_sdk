@@ -25,7 +25,7 @@ namespace cidaas_net_sdk.core
             _cidaasOptions = options;
         }
 
-        public async Task<AhamaticLoginResponse?> AuthenticateAhamaticAsync(
+        public async Task<AhamaticFullValidationResponse?> AuthenticateAhamaticAsync(
             string email,
             string password,
             string access_token
@@ -77,7 +77,7 @@ namespace cidaas_net_sdk.core
                     apiKey
                 );
 
-            return loginAhamaticResult;
+            return ahamaticCidaasVallidationResult;
         }
 
         private async Task<AuthConfigDetail?> GetModuleAuthConfigInternal(string moduleName)

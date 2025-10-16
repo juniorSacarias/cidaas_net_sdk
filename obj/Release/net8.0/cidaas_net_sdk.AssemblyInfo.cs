@@ -12,11 +12,11 @@ using System.Reflection;
 
 [assembly: System.Reflection.AssemblyCompanyAttribute("cidaas_net_sdk")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
-[assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.20.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.20+c7621ccff9948fee6a080a44227b5782962c4cad")]
+[assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.21.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.21+cf377edd1bfddb21f925a5151c0c309f51c78e75")]
 [assembly: System.Reflection.AssemblyProductAttribute("cidaas_net_sdk")]
 [assembly: System.Reflection.AssemblyTitleAttribute("cidaas_net_sdk")]
-[assembly: System.Reflection.AssemblyVersionAttribute("1.0.20.0")]
+[assembly: System.Reflection.AssemblyVersionAttribute("1.0.21.0")]
 
 // Generado por la clase WriteCodeFragment de MSBuild.
 
