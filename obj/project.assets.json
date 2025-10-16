@@ -322,7 +322,7 @@
     "/home/junior/.nuget/packages/": {}
   },
   "project": {
-    "version": "1.0.21",
+    "version": "1.0.22",
     "restore": {
       "projectUniqueName": "/home/junior/Escritorio/cidaas/cidaas_net_sdk/cidaas_net_sdk.csproj",
       "projectName": "Cidaas.Net.Sdk.Core",

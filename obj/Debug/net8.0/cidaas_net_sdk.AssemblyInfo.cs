@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("cidaas_net_sdk")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.22.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.22+f77973bfec2716869e9bd9a2ffbeb269294a3b9e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.22+8036522bbbae53e2968a61a9406026cd15f5dafa")]
 [assembly: System.Reflection.AssemblyProductAttribute("cidaas_net_sdk")]
 [assembly: System.Reflection.AssemblyTitleAttribute("cidaas_net_sdk")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.22.0")]
