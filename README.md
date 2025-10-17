@@ -3,7 +3,7 @@
 <h3 align="center">Hybrid Authentication (OIDC + Ahamatic) for ASP.NET Core</h3>
 
 <p align="center">
-  Developed by <a href="https://ahastudio.com" target="_blank">ahaStudio</a>
+  Developed by <a href="https://ahastudio.io/" target="_blank">ahaStudio</a>
 </p>
 
 <p align="center">
